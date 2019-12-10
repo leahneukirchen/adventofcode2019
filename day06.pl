@@ -3,12 +3,7 @@ use v5.16;
 
 use File::Slurper 'read_lines';
 
-my %orbits;
-
-for (read_lines("day06")) {
-    my ($in, $out) = split /\)/;
-    $orbits{$out} = $in;
-}
+my %orbits = map { reverse split /\)/ } read_lines("day06");
 
 my $p1 = 0;
 for (keys %orbits) {
